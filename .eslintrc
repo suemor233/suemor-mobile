@@ -1,0 +1,7 @@
+{
+  "extends": "@suemor/eslint-config-react-ts",
+  "ignorePatterns": ["ios/**/*", "android/**/*"],
+  "settings": {
+    "import/ignore": ["node_modules/react-native/index\\.js$"]
+  }
+}
