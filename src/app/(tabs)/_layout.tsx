@@ -2,14 +2,7 @@ import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 
 import { FontAwesome } from '@expo/vector-icons'
-
-import Colors from '../../constants/Colors'
-
-
-export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: 'home',
-}
+import Colors from '@/constants/Colors'
 
 
 export default function TabLayout() {
@@ -22,7 +15,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="index"
         options={{
           title: '首页',
           tabBarIcon: ({ color }) => (
