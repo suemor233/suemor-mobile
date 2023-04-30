@@ -3,8 +3,8 @@ import { Text, View } from 'react-native'
 
 const TabArchivesScreen = () => {
   return (
-    <View>
-      <Text>TabArchivesScreen</Text>
+    <View className=''>
+      <Text className=''>TabArchivesScreen</Text>
     </View>
   )
 }

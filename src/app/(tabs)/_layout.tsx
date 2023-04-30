@@ -1,9 +1,8 @@
 import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 
-import { FontAwesome } from '@expo/vector-icons'
 import Colors from '@/constants/Colors'
-
+import { FontAwesome } from '@expo/vector-icons'
 
 export default function TabLayout() {
   const colorScheme = useColorScheme()
