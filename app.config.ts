@@ -3,14 +3,13 @@ import type { ExpoConfig, ConfigContext } from "expo/config";
 
 import { version } from "./package.json";
 
-dotenv.config({ path: ".env.common" });
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 export default (_: ConfigContext): ExpoConfig => {
   return {
-    name: 'suemor-blog-mobile',
+    name: 'suemor blog',
     description: "suemor's blog mobile app",
-    slug: 'suemor-blog-mobile',
+    slug: 'suemor-app',
     version,
     orientation: 'portrait',
     icon: './assets/images/icon.png',
@@ -24,6 +23,7 @@ export default (_: ConfigContext): ExpoConfig => {
     assetBundlePatterns: ['**/*'],
     ios: {
       supportsTablet: true,
+      bundleIdentifier: process.env.BUNDLE_IDENTIFIER,
     },
     android: {
       adaptiveIcon: {

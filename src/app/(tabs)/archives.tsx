@@ -2,7 +2,7 @@ import React from 'react'
 import { ActivityIndicator, View } from 'react-native'
 import { FlatGrid } from 'react-native-super-grid'
 
-import ArchiveItem from '~/components/Archive/item'
+import ArchiveItem from '~/components/in-page/Archive/item'
 import { useGetArchives } from '~/services/queries/archives'
 
 const TabArchivesScreen = () => {

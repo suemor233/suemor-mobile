@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { FlatList, Text, View } from 'react-native'
 
-import HomeListItem from '~/components/Home/ListItem'
+import HomeListItem from '~/components/in-page/Home/ListItem'
 import { useGetPostInfiniteQuery } from '~/services/queries/posts'
 import type { postItemType } from '~/services/types/post'
 

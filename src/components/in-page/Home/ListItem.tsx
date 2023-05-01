@@ -8,7 +8,7 @@ import { AntDesign, Entypo } from '@expo/vector-icons'
 import type { postItemType } from '~/services/types/post'
 import { relativeTimeFromNow } from '~/utils/time'
 
-import Tag from '../universal/tag'
+import Tag from '../../universal/tag'
 
 const HomeListItem: FC<postItemType> = ({
   created,
@@ -25,7 +25,10 @@ const HomeListItem: FC<postItemType> = ({
           {/* <Text className=''>{time}</Text> */}
           <Text className="text-lg font-medium dark:text-white">{title}</Text>
         </View>
-        <Text numberOfLines={2} className="mt-1 text-gray-700 dark:text-gray-300 text-base">
+        <Text
+          numberOfLines={2}
+          className="mt-1 text-gray-700 dark:text-gray-300 text-base"
+        >
           {removeMd(content)}
         </Text>
         <View className="flex-row justify-between mt-2">

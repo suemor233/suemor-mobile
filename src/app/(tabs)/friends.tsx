@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { FlatGrid } from 'react-native-super-grid'
 
-import FriendItem from '~/components/Friends/item'
+import FriendItem from '~/components/in-page/Friends/item'
 import Loading from '~/components/universal/loading'
 import { useGetFriends } from '~/services/queries/friends'
 
