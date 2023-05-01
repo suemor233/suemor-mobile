@@ -10,11 +10,9 @@ const TabArchivesScreen = () => {
 
   if (archives.isLoading) {
     return (
-      <>
-        <View className="h-full justify-center items-center">
-          <ActivityIndicator />
-        </View>
-      </>
+      <View className="h-full justify-center items-center">
+        <ActivityIndicator />
+      </View>
     )
   }
   return (
