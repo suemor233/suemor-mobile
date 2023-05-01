@@ -3,7 +3,7 @@ import type { ApiResponse } from './api'
 
 
 axios.interceptors.request.use((config) => {
-  config.baseURL = 'http://192.168.10.103:4913'
+  config.baseURL = 'https://server-api.suemor.com/api/v2'
   return config
 })
 

@@ -1,7 +1,7 @@
 import { Stack, useSearchParams } from 'expo-router'
 import React from 'react'
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native'
-import Markdown from 'react-native-markdown-display'
+import { ActivityIndicator, View } from 'react-native'
+import WebView from 'react-native-webview'
 
 import { useGetPostById } from '~/services/queries/posts'
 
@@ -23,17 +23,10 @@ const PostScreen = () => {
   return (
     <>
       <Stack.Screen options={{ title: post.data?.post.title }} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        className='p-2'
-      >
-        {/* @ts-ignore */}
-        <Markdown style={{
-          // text:{
-          //   color:'white'
-          // }
-        }}>{post.data?.post?.content}</Markdown>
-      </ScrollView>
+      <WebView
+        source={{ uri: `https://beta.suemor.com/posts/${id}` }}
+        style={{ flex: 1 }}
+      />
     </>
   )
 }
