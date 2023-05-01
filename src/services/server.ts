@@ -1,9 +1,10 @@
 import axios from 'axios'
 import type { ApiResponse } from './api'
+import { API_URL } from '~/constants/env'
 
 
 axios.interceptors.request.use((config) => {
-  config.baseURL = 'https://server-api.suemor.com/api/v2'
+  config.baseURL = API_URL
   return config
 })
 

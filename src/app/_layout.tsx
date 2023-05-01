@@ -1,5 +1,5 @@
 import { useFonts } from 'expo-font'
-import { SplashScreen, Stack, usePathname } from 'expo-router'
+import { SplashScreen, Stack } from 'expo-router'
 import { useEffect } from 'react'
 import { AppState, Platform, useColorScheme } from 'react-native'
 
@@ -67,7 +67,7 @@ const queryClient = new QueryClient()
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme()
-  
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
