@@ -1,9 +1,14 @@
+## suemor blog 移动端
 react native 练手项目
 
 ## 开发
 
 ```
-// copy.env.example and rename it to .env.development.
+// rename.env.example to .env.development
 yarn
 yarn start
 ```
+
+## 补充
+
+[后端](https://github.com/suemor233/suemor-core)
