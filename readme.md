@@ -1,4 +1,4 @@
-## suemor blog 移动端
+## suemor blog mobile
 react native 练手项目
 
 ## 开发
