@@ -1,6 +1,7 @@
 {
-  "name": "suemor-blog-mobile",
-  "version": "1.0.0",
+  "name": "suemor-app",
+  "version": "0.0.1",
+  "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=development expo start",
     "android": "cross-env NODE_ENV=production expo run:android",
