@@ -5,7 +5,7 @@ type TagProps = PropsWithChildren
 
 const Tag: FC<TagProps> = ({ children }) => {
   return (
-    <View className="inline-bloc px-1 bg-gray-100 dark:bg-zinc-800">
+    <View className="px-1 bg-gray-100 dark:bg-zinc-800 inline-block">
       <Text className="text-sm text-blue-400 dark:text-blue-400">{children}</Text>
     </View>
   )

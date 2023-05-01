@@ -5,6 +5,7 @@ export interface PostsPaginateType extends PaginateType {
 export interface PaginateType {
   totalCount: number
   totalPages: number
+  pageCurrent:number
 }
 
 export interface postType {
