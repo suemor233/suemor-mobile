@@ -1,10 +1,9 @@
 import { Tabs } from 'expo-router'
 import { useColorScheme } from 'react-native'
 
-import Colors from '@/constants/Colors'
-import { FontAwesome } from '@expo/vector-icons'
+import { FontAwesome, FontAwesome5 } from '@expo/vector-icons'
 
-
+import Colors from '~/constants/Colors'
 
 export default function TabLayout() {
   const colorScheme = useColorScheme()
@@ -29,6 +28,15 @@ export default function TabLayout() {
           title: '归档',
           tabBarIcon: ({ color }) => (
             <FontAwesome name="archive" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="friends"
+        options={{
+          title: '朋友',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="user-friends" size={24} color={color} />
           ),
         }}
       />

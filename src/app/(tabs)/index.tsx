@@ -1,64 +1,52 @@
-import React from 'react'
-import { FlatList, View } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { FlatList, Text, View } from 'react-native'
 
-import HomeListItem from '@/components/Home/ListItem'
+import HomeListItem from '~/components/Home/ListItem'
+import { ApiPost } from '~/services/api/posts'
+import type { postItemType } from '~/services/types/post'
 
 const TabHomeScreen = () => {
+  const [list, setList] = useState<postItemType[]>([])
+  const [pageCurrent, setPageCurrent] = useState(1)
+  const [hasMore, setHasMore] = useState(true)
+  useEffect(() => {
+    handleFetchListData()
+  }, [])
+
+  const handleFetchListData = async () => {
+    if (!hasMore) return
+    const data = await ApiPost.getPostPaginate({ pageCurrent, pageSize: 10 })
+    setList((list) => [...list, ...data.postList])
+    if (data.totalPages == pageCurrent) {
+      setHasMore(false)
+    }
+    setPageCurrent((pageCurrent) => pageCurrent + 1)
+  }
+
+  const handleFreshListData = async () => {
+    setList([])
+    setPageCurrent(1)
+    setHasMore(true)
+  }
+
   return (
-    <View className="h-full bg-gray-50">
+    <View className="h-full bg-gray-50 dark:bg-black">
       <FlatList
-        data={HomeListData}
+        data={list}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => <HomeListItem {...item} />}
+        onEndReached={() => handleFetchListData()}
+        onEndReachedThreshold={0.5}
+        ListEmptyComponent={
+          <View className="h-full justify-center items-center">
+            <Text>loading...</Text>
+          </View>
+        }
+        onRefresh={handleFreshListData}
+        refreshing={false}
       />
     </View>
   )
 }
-
-export const HomeListData = [
-  {
-    time: '2023-04-14',
-    title: '让 Tailwind 内置颜色支持暗黑模式',
-    tags: ['Tailwind', 'CSS', '黑暗模式'],
-    category: '前端',
-    content:
-      '最近给xLog 增加了黑暗模式的支持，但由于xLog 在开发时候就没对黑暗模式留个口子，比如颜色值不固定写死，或者是使用CSS 变量的颜色值。而xLog 真巧使用了 Tailwind，基本上所有的颜色应用场景都用了 Tailwind 自带的色值，但由于 Tailwind 本身自带的色值都是一个固定的值',
-  },
-
-  {
-    time: '2023-04-14',
-    title: '让 Tailwind 内置颜色支持暗黑模式',
-    tags: ['Tailwind', 'CSS', '黑暗模式'],
-    category: '前端',
-    content:
-      '最近给xLog 增加了黑暗模式的支持，但由于xLog 在开发时候就没对黑暗模式留个口子，比如颜色值不固定写死，或者是使用CSS 变量的颜色值。而xLog 真巧使用了 Tailwind，基本上所有的颜色应用场景都用了 Tailwind 自带的色值，但由于 Tailwind 本身自带的色值都是一个固定的值',
-  },
-
-  {
-    time: '2023-04-14',
-    title: '让 Tailwind 内置颜色支持暗黑模式',
-    tags: ['Tailwind', 'CSS', '黑暗模式'],
-    category: '前端',
-    content:
-      '最近给xLog 增加了黑暗模式的支持，但由于xLog 在开发时候就没对黑暗模式留个口子，比如颜色值不固定写死，或者是使用CSS 变量的颜色值。而xLog 真巧使用了 Tailwind，基本上所有的颜色应用场景都用了 Tailwind 自带的色值，但由于 Tailwind 本身自带的色值都是一个固定的值',
-  },
-  {
-    time: '2023-04-14',
-    title: '让 Tailwind 内置颜色支持暗黑模式',
-    tags: ['Tailwind', 'CSS', '黑暗模式'],
-    category: '前端',
-    content:
-      '最近给xLog 增加了黑暗模式的支持，但由于xLog 在开发时候就没对黑暗模式留个口子，比如颜色值不固定写死，或者是使用CSS 变量的颜色值。而xLog 真巧使用了 Tailwind，基本上所有的颜色应用场景都用了 Tailwind 自带的色值，但由于 Tailwind 本身自带的色值都是一个固定的值',
-  },
-
-  {
-    time: '2023-04-14',
-    title: '让 Tailwind 内置颜色支持暗黑模式',
-    tags: ['Tailwind', 'CSS', '黑暗模式'],
-    category: '前端',
-    content:
-      '最近给xLog 增加了黑暗模式的支持，但由于xLog 在开发时候就没对黑暗模式留个口子，比如颜色值不固定写死，或者是使用CSS 变量的颜色值。而xLog 真巧使用了 Tailwind，基本上所有的颜色应用场景都用了 Tailwind 自带的色值，但由于 Tailwind 本身自带的色值都是一个固定的值',
-  },
-]
 
 export default TabHomeScreen
